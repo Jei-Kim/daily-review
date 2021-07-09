@@ -5,7 +5,7 @@ package com.eomcs.lang.ex04;
 public class Exam0560 {
   public static void main(String[] args) {
     
-    // 일반 변수는 값을 저장하지 않고 사용할 수 없다.
+    // 로컬 변수는 값을 저장하지 않고 사용할 수 없다.
     int v;
     //System.out.println(v); // 컴파일 오류!
     

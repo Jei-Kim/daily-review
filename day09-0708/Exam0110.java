@@ -1,15 +1,41 @@
-package com.eomcs.basic.ex10;
+package com.eomcs.lang.ex06;
 
+//# 흐름 제어문 - 조건문 if
+//
 public class Exam0110 {
-
   public static void main(String[] args) {
-    java.util.Date d = new java.util.Date(); // Date 객체를 만드는 순간의 시각을 저장해 둔다.
-    System.out.println(d.toString());
-    // 변환한 것을 콘솔에 문자열로 출력해라
-    System.out.printf("%tY-%tm-%td\n", d, d, d);
-    // 화면에 출력할 형식을 지정하고 싶으면 printf 사용
-    System.out.printf("%tY-%1$tm-%1$td\n", d);
-    //이렇게 d 하나만 입력해서 출력하고 싶으면 두번째 값부터 1$ 붙여줘야함
-  }
+    int age = 17;
 
+    // => if (조건) 문장;
+    if (age >= 19) System.out.println("성인이다.");
+
+    // => 문장을 다른 줄에 놓는 경우가 많다.
+    if (age >= 19); // if 문에 빈 문장을 넣을 수 있다.
+      System.out.println("성인이다.");
+    // 이런 경우 개발자가 오해할 수 있다.
+    // if (조건) 뒤에 문자의 끝을 표시하는 세미콜론을 사용하지 않도록 조심하라!
+
+    // 참고!
+    // => 문장을 작성할 때 연산자, 피연산자, 문장 기호에 따라 여러 줄에 걸쳐 작성할 수 있다.
+    // => 단 문장을 여러 줄로 나누어 작성할 때, 읽기 쉽게 작성하라.
+    // => 다음과 같이 하지 말라!
+    if (age
+        >=
+        19) System
+    .
+    out.
+    println(
+        "성인이다.")
+    ;
+  }
 }
+/*
+# if 조건문
+문법1:
+  if (조건) 문장1;
+  => 조건이 참일 때 문장1을 수행한다.
+
+문법2:
+  if (조건) 문장1; else 문장2;
+  => 조건이 참일 때 문장1을 수행하고, 거짓이면 문장2를 수행한다.
+ */
