@@ -1,4 +1,4 @@
-package com.eomcs.pms;
+package com.eomcs.util;
 
 import java.sql.Date;
 import java.util.Scanner;
@@ -7,21 +7,23 @@ public class Prompt {
 
   static Scanner keyboardScan = new Scanner(System.in);
 
-  static String inputString(String title) {
+  // 메서드의 접근 범위를 설정하지 않으면 
+  // 기본 접근 범위는 같은 패키지 및 하위 클래스 만이 접근할 수 있다.
+  // => 다른 패키지에서도 접근할 수 있도록 하려면 public 으로 공개해야 한다.
+  public static String inputString(String title) {
     System.out.print(title);
     return keyboardScan.nextLine();
   }
 
-  static int inputInt(String title) {
+  public static int inputInt(String title) {
     return Integer.parseInt(inputString(title));
   }
 
-  static Date inputDate(String title) {
+  public static Date inputDate(String title) {
     return Date.valueOf(inputString(title));
   }
 
-  // 자원을 닫는 일은 그 자원을 가지고 있는 클래스에서 해야 한다.
-  static void close() {
+  public static void close() {
     keyboardScan.close();
   }
 }
