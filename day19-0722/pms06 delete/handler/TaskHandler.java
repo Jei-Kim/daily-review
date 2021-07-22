@@ -66,6 +66,69 @@ public class TaskHandler {
           this.tasks[i].owner);
     }
   }
+  
+  public void detail() {
+    System.out.println("[작업 상세보기]");
+    int no = Prompt.inputInt("번호? ");
+
+    Task task = null;
+
+    for (int i = 0; i < this.size; i++) {
+      if (this.tasks[i].no == no) {
+        task = this.tasks[i];
+        break;
+      }
+    }
+
+    if (task == null) {
+      System.out.println("해당 번호의 작업이 없습니다.");
+      return;
+    }
+
+    System.out.printf("번호: %d\n", task.title);
+    System.out.printf("내용: %s\n", task.content);
+    System.out.printf("마감일: %s\n", task.deadline);
+    System.out.printf("담당자: %s\n", task.owner);
+    System.out.printf("상태: %d\n", task.status);
+  }
+
+  public void update() {
+    System.out.println("[작업 변경]");
+    int no = Prompt.inputInt("번호? ");
+
+    Task task = null;
+
+    for (int i = 0; i < this.size; i++) {
+      if (this.tasks[i].no == no) {
+        task = this.tasks[i];
+        break;
+      }
+    }
+
+    if (task == null) {
+      System.out.println("해당 번호의 작업이 없습니다.");
+      return;
+    }
+    
+    Int no = Prompt.inputInt(Integer.parseInst(String.format("번호(%d)? ", task.no)));
+    String content = Prompt.inputString(String.format("내용(%s)? ", task.content));
+    String deadline = Prompt.inputString(String.format("마감일(%s)? ", task.deadline));
+    String owner = Prompt.inputString(String.format("담당자(%s)? ", task.owner));
+    String status = Prompt.inputString(String.format("상태(%s)? ", task.status));
+    
+    
+
+    String input = Prompt.inputString("정말 변경하시겠습니까?(y/N) ");
+    if (input.equalsIgnoreCase("n") || input.length() == 0) {
+      System.out.println("게시글 변경을 취소하였습니다.");
+      return;
+    }
+
+    board.title = title;
+    board.content = content;
+    System.out.println("게시글을 변경하였습니다.");
+  }
+  
 public void delete(){
 
 System.out.println("[작업 삭제]");
