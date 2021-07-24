@@ -44,7 +44,7 @@ public class ProjectHandler {
         continue;
       } else if (member.length() == 0) {
         break;
-      } 
+      }
       System.out.println("등록된 회원이 아닙니다.");
     }
     project.members = members;
@@ -52,20 +52,16 @@ public class ProjectHandler {
     this.projects[this.size++] = project;
   }
 
-  //다른 패키지에 있는 App 클래스가 다음 메서드를 호출할 수 있도록 공개한다.
+  // 다른 패키지에 있는 App 클래스가 다음 메서드를 호출할 수 있도록 공개한다.
   public void list() {
     System.out.println("[프로젝트 목록]");
     for (int i = 0; i < this.size; i++) {
-      System.out.printf("%d, %s, %s, %s, %s, [%s]\n",
-          this.projects[i].no, 
-          this.projects[i].title, 
-          this.projects[i].startDate, 
-          this.projects[i].endDate, 
-          this.projects[i].owner,
+      System.out.printf("%d, %s, %s, %s, %s, [%s]\n", this.projects[i].no, this.projects[i].title,
+          this.projects[i].startDate, this.projects[i].endDate, this.projects[i].owner,
           this.projects[i].members);
     }
   }
-  
+
   public void detail() {
     System.out.println("[프로젝트 상세보기]");
     int no = Prompt.inputInt("번호? ");
@@ -111,15 +107,15 @@ public class ProjectHandler {
       return;
     }
 
-    Int no = Prompt.inputInt(Int.format("번호(%d)? ", project.no));
+
     String title = Prompt.inputString(String.format("제목(%s)? ", project.title));
     String content = Prompt.inputString(String.format("내용(%s)? ", project.content));
     String startDate = Prompt.inputString(String.format("내용(%s)? ", project.startDate));
     String endDate = Prompt.inputString(String.format("내용(%s)? ", project.endDate));
     String owner = Prompt.inputString(String.format("내용(%s)? ", project.owner));
     String members = Prompt.inputString(String.format("내용(%s)? ", project.members));
-    
-    
+
+
     String input = Prompt.inputString("정말 변경하시겠습니까?(y/N) ");
     if (input.equalsIgnoreCase("n") || input.length() == 0) {
       System.out.println("프로젝트 변경을 취소하였습니다.");
@@ -130,7 +126,7 @@ public class ProjectHandler {
     board.content = content;
     System.out.println("프로젝트를 변경하였습니다.");
   }
-  
+
 public void delete(){
 System.out.println("[프로젝트 삭제");
 int no = Prompt.inputInt("번호? ")

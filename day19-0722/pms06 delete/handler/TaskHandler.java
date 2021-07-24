@@ -10,7 +10,7 @@ public class TaskHandler {
   Task[] tasks = new Task[MAX_LENGTH];
   int size = 0;
 
-  //다른 패키지에 있는 App 클래스가 다음 메서드를 호출할 수 있도록 공개한다.
+  // 다른 패키지에 있는 App 클래스가 다음 메서드를 호출할 수 있도록 공개한다.
   public void add(MemberHandler memberHandler) {
     System.out.println("[작업 등록]");
 
@@ -41,7 +41,7 @@ public class TaskHandler {
     this.tasks[this.size++] = task;
   }
 
-  //다른 패키지에 있는 App 클래스가 다음 메서드를 호출할 수 있도록 공개한다.
+  // 다른 패키지에 있는 App 클래스가 다음 메서드를 호출할 수 있도록 공개한다.
   public void list() {
     System.out.println("[작업 목록]");
 
@@ -58,15 +58,11 @@ public class TaskHandler {
           stateLabel = "신규";
       }
 
-      System.out.printf("%d, %s, %s, %s, %s\n",
-          this.tasks[i].no, 
-          this.tasks[i].content, 
-          this.tasks[i].deadline, 
-          stateLabel, 
-          this.tasks[i].owner);
+      System.out.printf("%d, %s, %s, %s, %s\n", this.tasks[i].no, this.tasks[i].content,
+          this.tasks[i].deadline, stateLabel, this.tasks[i].owner);
     }
   }
-  
+
   public void detail() {
     System.out.println("[작업 상세보기]");
     int no = Prompt.inputInt("번호? ");
@@ -109,14 +105,14 @@ public class TaskHandler {
       System.out.println("해당 번호의 작업이 없습니다.");
       return;
     }
-    
-    Int no = Prompt.inputInt(Integer.parseInst(String.format("번호(%d)? ", task.no)));
+
+
     String content = Prompt.inputString(String.format("내용(%s)? ", task.content));
     String deadline = Prompt.inputString(String.format("마감일(%s)? ", task.deadline));
     String owner = Prompt.inputString(String.format("담당자(%s)? ", task.owner));
     String status = Prompt.inputString(String.format("상태(%s)? ", task.status));
-    
-    
+
+
 
     String input = Prompt.inputString("정말 변경하시겠습니까?(y/N) ");
     if (input.equalsIgnoreCase("n") || input.length() == 0) {
@@ -128,39 +124,39 @@ public class TaskHandler {
     board.content = content;
     System.out.println("게시글을 변경하였습니다.");
   }
-  
-public void delete(){
 
-System.out.println("[작업 삭제]");
-int no = Prompt.inputInt("번호? ");
+  public void delete() {
 
-int taskIndex = -1;
+    System.out.println("[작업 삭제]");
+    int no = Prompt.inputInt("번호? ");
 
-for(int i = 0; i < this.size; i++){
-  if(this.tasks[i].no = no){
-    taskIndex = i;
-    break;
+    int taskIndex = -1;
+
+    for (int i = 0; i < this.size; i++) {
+      if (this.tasks[i].no = no) {
+        taskIndex = i;
+        break;
+      }
+    }
+
+    if (taskIndex == -1) {
+      System.out.println("해당 번호의 작업이 없습니다.");
+      return;
+    }
+
+    Prompt.inputString("정말 삭제하시겠습니까?(y/N) ");
+    if (input.equalsIgnoreCase("n") || input.length() == 0) {
+      System.out.println("작업 삭제를 취소하였습니다.");
+      return;
+    }
+
+    for (int i = taskIndex + 1; i < this.size; i++) {
+      this.tasks[i - 1] = this.tasks[i];
+    }
+
+    this.tasks[--this.size] = null;
+
+    System.out.println("게시글을 삭제하였습니다.");
+
   }
-}
-
-if (taskIndex == -1){
-  System.out.println("해당 번호의 작업이 없습니다.");
-  return;
-}
-
-Prompt.inputString("정말 삭제하시겠습니까?(y/N) ");
-if(input.equalsIgnoreCase("n") || input.length() == 0) {
-  System.out.println("작업 삭제를 취소하였습니다.");
-  return;
-}
-
-for(int i = taskIndex + 1; i < this.size; i++){
-  this.tasks[i - 1] = this.tasks[i];
-}
-
-this.tasks[--this.size] = null;
-
-System.out.println("게시글을 삭제하였습니다.");
-
-}
 }
