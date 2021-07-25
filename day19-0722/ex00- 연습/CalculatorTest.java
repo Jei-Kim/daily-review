@@ -21,7 +21,18 @@ public class CalculatorTest {
     System.out.println(r1);
     System.out.println(r2);
   }
+  
+  static int plus(int result, int value) {
+    return result + value;
+  }
 
+  static int minus(int result, int value) {
+    return result - value;
+  }
+
+  static int multiple(int result, int value) {
+    return result * value;
+  }
   
 
 }
