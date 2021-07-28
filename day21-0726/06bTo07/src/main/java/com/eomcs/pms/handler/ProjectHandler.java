@@ -23,7 +23,7 @@ public class ProjectHandler {
   public ProjectHandler(MemberHandler memberHandler){  //-> 생성자의 메서드 이름은 소문자 시작x 클래스명과 같아야 함! ProjectHandler
   // 생성자에 파라미터가 있으면, 인스턴스를 생성할 때 반드시 그 값을 넘겨야 한다.
   // 일종의 인스턴스 변수의 값을 설정하는 것을 강제하는 효과가 있다.
-  this.memberHandler = memberHandler;
+  this.memberHandler = memberHandler; 
 
 }
  //memberHandler 파라미터 삭제
