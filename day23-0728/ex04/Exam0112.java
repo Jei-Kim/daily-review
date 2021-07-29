@@ -17,6 +17,7 @@ public class Exam0112 {
     };
     String s1 = new String(bytes);
     System.out.println(s1);
+
     // 결과: 
     // => 한글 출력이 깨진다.
     //
@@ -25,7 +26,7 @@ public class Exam0112 {
     //    유니코드(UCS2) 문자열로 변환할 때
     //    바이트 배열이 OS의 기본 문자 코드로 되어 있다고 간주한다.
     // => OS 마다 기본으로 사용하는 문자 코드표(Character Set)가 다르다.
-    //    Windows : MS949
+    //    Windows : MS949 
     //    Unix/Linux/macOS : UTF-8
     // => 그런데 위 예제의 바이트 배열은 EUC-KR 코드이다.
     //    그래서 String 클래스는 바이트 배열을 제대로 해석하지 못한 것이다.

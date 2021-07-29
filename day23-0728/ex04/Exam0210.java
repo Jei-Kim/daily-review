@@ -12,11 +12,13 @@ public class Exam0210 {
 
     /// 아래 얘네는 인스턴스 메서드임 -> 그래서 앞에 인스턴스 주소를 줘야 함
     
-    System.out.println(s1.compareTo("Helli")); //compareTo는 인스턴스 메서드임
+    System.out.println(s1.compareTo("Helli")); //compareTo는 인스턴스 메서드임 
+    // 현재 문자열이 파라미터 문자열보다 앞,뒤인지 정렬을 따질 때 사용
     System.out.println(s1.compareTo("Hello"));
     System.out.println(s1.compareTo("Hellq"));
 
-    System.out.println(s1.contains("ll")); //contains는 인스턴스 메서드임
+    System.out.println(s1.contains("ll")); //contains는 인스턴스 메서드임 
+    // 현재 문자열이 파라미터 문자열에 포함되어있는지를 조회 후 t/f값 리턴
     System.out.println(s1.contains("ee"));
 
     // 두 문자열을 연결하여 새 문자열을 만들자!
@@ -38,7 +40,7 @@ public class Exam0210 {
     //    인코딩 문자집합을 지정하지 않으면 JVM의 기본 문자집합으로 인코딩 한다. 
     //    이클립스에서 JVM을 실행하면 JVM은 기본으로 UTF-8 문자표를 사용하여 
     //    바이트 배열에 코드 값을 저장한다. 
-    for (int i = 0; i < bytes.length; i++)
+    for (int i = 0; i < bytes.length; i++) //5번 반복 
       System.out.printf("%x,", bytes[i]);
     System.out.println();
     System.out.println("-------------------------");
@@ -58,11 +60,12 @@ public class Exam0210 {
     
     /// 아래 얘네는 스태틱 메서드임.
     // -> 인스턴트 주소 필요없삼 String이라는 클래스명으로 바로 호출
+
     String s4 = String.format("%s님 반갑습니다", "홍길동");
     System.out.println(s4);
 
     // => 구분자와 문자열들을 파라미터로 받아서 새 문자열을 만든다.
-    String s5 = String.join(":", "홍길동", "임꺽정", "유관순");
+    String s5 = String.join(":", "홍길동", "임꺽정", "유관순"); // 홍길동 : 임꺽정 : 유관순
     System.out.println(s5);
 
     // => primitive 값을 문자열로 만든다.

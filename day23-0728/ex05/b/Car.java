@@ -10,13 +10,6 @@ public class Car {
   // 필드를 추가한다.
   public boolean sunroof;
   
-  
-  
-  
-  
-  
-  
-  
   public boolean auto;
 
   public Car() {}
