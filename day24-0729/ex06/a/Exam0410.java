@@ -16,7 +16,7 @@ public class Exam0410 {
     sedan.model = "티코";
     sedan.cc = 800;
 
-    Truck truck = new Truck(); //Truck은 Sedan의 자식이 아님 ㅎ
+    Truck truck = new Truck();
     truck.model = "타이탄II";
     truck.cc = 10000;
 

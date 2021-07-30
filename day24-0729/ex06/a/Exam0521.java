@@ -5,7 +5,6 @@ public class Exam0521 {
 
   public static void main(String[] args) {
     // 수퍼 클래스의 레퍼런스는 하위 클래스의 인스턴스를 담을 수 있다.
-    // 나중에 프로젝트에 활용할 문법임. 오브젝트 클래스에 담기.
     Vehicle[] arr = new Vehicle[] {
         new Car("비트자동차", 5, 1980, 16), 
         new Bike("캠프모터", 5, true), 

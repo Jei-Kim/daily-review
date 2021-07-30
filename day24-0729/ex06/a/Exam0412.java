@@ -11,8 +11,6 @@ public class Exam0412 {
   //    상위 클래스의 레퍼런스를 선언하면 된다.
   //
   public static void printCar(Car car) {
-    // sedan으로 지정하는것보다 car라고 지정하면 sedan을 포함해 car의 모든 서브를 쓸 수 있어서 효율적임
-    // 이렇게 적은 코드로 효율적인 사용을 할 수 있는 것이 다형적 변수..?
     System.out.printf("모델명: %s\n", car.model);
     System.out.printf("cc: %d\n", car.cc);
     System.out.println("-------------------------");

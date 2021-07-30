@@ -10,8 +10,6 @@ public class Exam0310 {
     System.out.println("hello");
 
     // 외부에서 값을 받아 Integer 객체를 생성하는 메서드들
-    /// 전형적인 오버로딩 문법
-    // 파라미터 값을 줌 변경해줌으로써 다양한 기능을 수행하는 것처럼 보임?
     Integer obj1 = Integer.valueOf(100);
     Integer obj2 = Integer.valueOf("100");
     Integer obj3 = Integer.valueOf("64", 16);

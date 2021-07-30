@@ -4,7 +4,7 @@ package com.eomcs.oop.ex06.a;
 public class Exam0510 {
 
   public static void main(String[] args) {
-    Vehicle v = new Sedan(); // 인스턴스 주소가 들어있음
+    Vehicle v = new Sedan();
     
     // instanceof 연산자?
     // => 레퍼런스에 들어있는 주소가 특정 클래스의 인스턴스인지 검사한다.

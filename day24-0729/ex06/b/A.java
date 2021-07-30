@@ -6,15 +6,15 @@ public class A {
   }
 
   // 파라미터의 타입이나 개수가 다르지만 이름이 같은 메서드를 여러 개 만들 수 있다.
-  static public void m(int a) { // a : 파라미터 이름
+  static public void m(int a) {
     System.out.println("m(int)");
   }
 
-  static public void m(String a) { // a : 파라미터 이름
+  static public void m(String a) {
     System.out.println("m(String)");
   }
 
-  static public void m(String a, int b) { 
+  static public void m(String a, int b) {
     System.out.println("m(String,int)");
   }
 
