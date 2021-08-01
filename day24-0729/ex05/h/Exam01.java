@@ -1,4 +1,4 @@
-// 상속 - 수퍼 클래스에 기본 생성자가 없을 때!
+// 상속 - 수퍼 클래스에 기본 생성자가 없을 때
 package com.eomcs.oop.ex05.h;
 
 public class Exam01 {
