@@ -3,8 +3,13 @@ package com.eomcs.pms.menu;
 // MenuItem과 MenuGroup을 같은 타입으로 묶기 위해 정의한 클래스이다.
 // 이 클래스 자체는 직접 인스턴스를 만들어 사용하기 위함이 아니라
 // 상속해주는 용도이기 때문에 추상 클래스로 정의한다.
-public abstract class Menu {
 
+/// (둘을 같은 데이터타입으로 정의하기 위해서 추상클래스를 하나 생성한거임)
+
+public abstract class Menu { 
+  //일반클래스는 추상메서드를 가질 수 없다. 따라서 클래스도 추상클래스로 만들어주어야 함.
+
+  
   String title;
 
   // 메뉴 이름없이 인스턴스를 생성할 수 없도록 
