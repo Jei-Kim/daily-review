@@ -5,11 +5,9 @@ import com.eomcs.pms.domain.Board;
 import com.eomcs.util.Prompt;
 
 public class BoardHandler {
-
-  /// 배열의 크기를 초과했을 경우 에러남 - > 해결방법?
+/// 배열의 크기를 초과했을 경우 에러남 -> 해결방법?
   static final int MAX_LENGTH = 5;
 
-  
   Board[] boards = new Board[MAX_LENGTH];
   int size = 0;
 
@@ -23,29 +21,26 @@ public class BoardHandler {
     board.content = Prompt.inputString("내용? ");
     board.writer = Prompt.inputString("작성자? ");
     board.registeredDate = new Date(System.currentTimeMillis());
-    
+
     //로컬변수에 같은 이름이 없을 경우 this. 생략 가능
-    //(생략하면 컴파일러가 자동 생성해줌)
-    
-    if (this.size == this.boards.length) { //배열의 크기가 같아진다면(꽉 찬다면)
-      
-      // 기존 배열보다 50% 더 큰 배열을 만들자
+    // (생략하면 컴파일러가 자동 생성해줌)
+    if (this.size == this.boards.length) { // 배열의 최대 크기에 도달했을 때
+      // 기존 배열 보다 50% 더 큰 배열을 만든다.
+      Board[] arr = new Board[this.boards.length + (this.boards.length >> 1)];
       //Board[] arr = new Board[this.boards.length + this.boards.length / 2];
       //5나누기2는 2(정수값이라서)  --> so 5 + 2 = 7
-      Board[] arr = new Board[this.boards.length + (this.boards.length) >> 1];
-      //위와 동일함 but 비트연산자 사용 ( >>1은 /2와 같다. )
       
-      //기존 배열의 값을 새 배열로 복사한다.
+      // 기존 배열의 값을 새 배열로 복사한다.
       for (int i = 0; i < this.size; i++) {
         arr[i] = this.boards[i];
       }
-      
-    //기존 배열 대신 새 배열 주소를 저장한다.
-    //=> 물론 이렇게 함으로써 기존 배열은 가비지가 될 것이다. 
-   this.boards = arr;
-   System.out.println("새 Board[] 객체를 만듦!");
-  }
-   this.boards[this.size++] = board;
+
+      // 기존 배열 대신 새 배열 주소를 저장한다.
+      // => 물론 이렇게 함으로써 기존 배열은 가비지가 될 것이다.
+      this.boards = arr;
+      System.out.println("새 Board[] 객체를 만듦!");
+    }
+    this.boards[this.size++] = board;
   }
 
   public void list() {
