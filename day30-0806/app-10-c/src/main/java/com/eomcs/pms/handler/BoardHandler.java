@@ -6,22 +6,7 @@ import com.eomcs.util.Prompt;
 
 public class BoardHandler {
 
-  //특정 패키지 클래스에서만 사용할 클래스라면,
-  // 패키지 멤버 클래스로 두지 말고 중첩클래스로 만들어줌- static으로 
-  static class Node {
-    Board board; //보드의 값을 받아
-    Node next;// 다음 노드의 주소를 받아
-
-    public Node(Board board) {
-      this.board = board;
-          //얘(좌항)는 위에 있는 변수를 뜻하는거니께 this 생략하면 안됨. 
-
-    }
-  }
-
-  Node head; // 앞쪽 노드
-  Node tail; // 뒷쪽 노드
-  int size = 0;
+  ArrayList boardList = new ArrayList();
 
   public void add() {
     System.out.println("[새 게시글]");
@@ -34,42 +19,24 @@ public class BoardHandler {
     board.writer = Prompt.inputString("작성자? ");
     board.registeredDate = new Date(System.currentTimeMillis());
 
-    // 새 노드를 만든다. 생성자를 호출할 때, 노드에 담을 Board 객체 주소를 넘긴다. 
-    // 노드 객체 생성할 때 보드 객체의 주소를 넘김 (걍 객체를 파라미터로 넘긴다고 표현함)
-
-    Node node = new Node(board); //이제 노드에 담아줄거임
-
-    if (head == null) { // if(this.head == null)
-      tail = head = node; // node를 head에 대입, head를 tail에 대입
-    } else {
-      // 기존에 tail이 가리키는 마지막 노드의 next 변수에 새 노드 주소를 저장한다.
-      tail.next = node;
-      // 새로 만든 노드를 마지막 노드로 설정한다. 
-      tail = node;
-    }
-
-    size++;
+    boardList.add(board);
   }
 
   public void list() {
     System.out.println("[게시글 목록]");
-    if (head == null) {
-      return;
-    }
 
-    Node node = head;
+    Object[] list = boardList.toArray();
 
-    do {
+    for (Object obj : list) {
+      Board board = (Board) obj;
       System.out.printf("%d, %s, %s, %s, %d, %d\n", 
-          node.board.no, 
-          node.board.title, 
-          node.board.writer,
-          node.board.registeredDate,
-          node.board.viewCount, 
-          node.board.like);
-      node = node.next;
-    } while (node != null);
-    //node가 null값이 아니면 해당하는 값의 주소로 찾아가서 변수 출력(do)
+          board.no, 
+          board.title, 
+          board.writer,
+          board.registeredDate,
+          board.viewCount, 
+          board.like);
+    }
   }
 
   public void detail() {
@@ -132,45 +99,20 @@ public class BoardHandler {
       return;
     }
 
-    Node node = head;
-    Node prev = null;
-
-    while (node != null) {
-      if (node.board == board) {
-        if (node == head) { // 현재 찾은 노드가 head일 경우
-          head = node.next;
-        } else {
-          prev.next = node.next; // 이전 노드를 다음 노드와 연결한다.
-        }
-
-        node.next = null; // 다음 노드와의 연결을 끊는다.
-
-        if (node == tail) { // 삭제할 현재 노드가 마지막 노드라면
-          tail = prev; // 이전 노드를 마지막 노드로 설정한다.
-        }
-
-        break;
-      }
-
-      // 현재 노드가 아니라면,
-      prev = node; // 현재 노드의 주소를 prev 변수에 저장하고,
-    }
-
-    size--;
+    boardList.remove(board);
 
     System.out.println("게시글을 삭제하였습니다.");
   }
 
   private Board findByNo(int no) {
-    Node node = head;
-
-    while (node != null) { // 헤드가 빈 값이 아니라면 = 헤드라면?
-      if (node.board.no == no) {
-        return node.board;
+    Object[] arr = boardList.toArray();
+    for (Object obj : arr) {
+      Board board = (Board) obj;
+      if (board.no == no) {
+        return board;
       }
-      node = node.next;
     }
-    return null; //노드가 없으면 걍 널값
+    return null;
   }
 }
 
