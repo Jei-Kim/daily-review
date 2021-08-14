@@ -2,7 +2,7 @@
 package com.eomcs.oop.ex07.a;
 
 // 추상 메서드는 구현하지 않은 메서드이기 때문에
-// 일반 클래스(=구현 클래스; concrete class)는 추상 메서드를 가질 수 없다.
+// 일반 클래스(= 구현 클래스; concrete class)는 추상 메서드를 가질 수 없다.
 // 오직 추상 클래스만이 추상 메서드를 가질 수 있다.
 // 왜?
 // - 일반 클래스는 인스턴스를 생성할 수 있다.
@@ -31,7 +31,7 @@ public class Exam03 {
   public static void main(String[] args) {
     A3 obj;
 
-    // 추상 클래스의 인스턴스는 생성 불가!
+    // 추상 클래스의 인스턴스는 생성 불가!X
     //    obj = new A3(); // Error!
 
     // 추상 메서드를 구현한 서브 클래스 만이 인스턴스 생성 가능!
