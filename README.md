@@ -1,2 +1,2 @@
 # daily-review
-bitcamp
+- based on bitcamp-study
