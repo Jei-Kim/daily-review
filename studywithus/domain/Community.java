@@ -1,16 +1,27 @@
 package com.studywithus.domain;
 
+import java.io.Serializable;
 import java.sql.Date;
 
-public class Community {
+//커뮤니티 게시글 구성요소
+@SuppressWarnings("serial")
+public class Community implements Serializable {
 
-  private String title; // 게시글 제목
-  private String writer; // 게시글 작성자
-  private Date registeredDate; // 등록일
-  private String content; // 내용
-  private int like; // 좋아요
-  private int viewCount; // 조회수
   private int no; // 게시글 번호
+  private String title; // 게시글 제목
+  private String content; // 내용
+  private Member writer; // 게시글 작성자 
+  private Date registeredDate; // 등록일
+  private int viewCount; // 조회수
+  private int like; // 좋아요
+  private String name;
+
+  @Override
+  public String toString() {
+    return "Community [no=" + no + ", title=" + title + ", content=" + content + ", writer=" + writer
+        + ", registeredDate=" + registeredDate + ", viewCount=" + viewCount + ", like=" + like
+        + "]";
+  }
 
   public int getNo() {
     return no;
@@ -28,11 +39,11 @@ public class Community {
     this.title = title;
   }
 
-  public String getWriter() {
+  public Member getWriter() { 
     return writer;
   }
 
-  public void setWriter(String writer) {
+  public void setWriter(Member writer) { 
     this.writer = writer;
   }
 
@@ -67,4 +78,13 @@ public class Community {
   public void setViewCount(int viewCount) {
     this.viewCount = viewCount;
   }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
 }

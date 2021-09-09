@@ -12,21 +12,26 @@ public class FreeStudyAddHandler extends AbstractFreeStudyHandler {
   }
 
   // 무료 스터디 생성
+  @Override
   public void execute() {
-    System.out.println("[무료 스터디 / 생성]");
+    System.out.println("[무료 스터디 / 생성]\n");
 
     FreeStudy freeStudy = new FreeStudy();
 
+    freeStudy.setWriter(AuthLoginHandler.getLoginUser());
+
     freeStudy.setNo(Prompt.inputInt("번호? "));
-    freeStudy.setWriter(Prompt.inputString("팀장? "));
 
     System.out.println("온/오프라인?");
     System.out.println("1. 온라인");
     System.out.println("2. 오프라인");
-    freeStudy.setOnOffLine(Prompt.inputString("> "));
+    freeStudy.setOnOffLine(Prompt.inputInt("> "));
 
-    if (freeStudy.getOnOffLine().equals("2")) {
+    if (freeStudy.getOnOffLine() == 2) {
       freeStudy.setArea(Prompt.inputString("지역? "));
+
+    } else {
+      freeStudy.setArea(null);
     }
 
     freeStudy.setTitle(Prompt.inputString("제목? "));

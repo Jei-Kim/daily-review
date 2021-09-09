@@ -1,9 +1,10 @@
 package com.studywithus.domain;
 
+import java.io.Serializable;
 import java.sql.Date;
 
-public class ChargeStudy {
-
+@SuppressWarnings("serial")
+public class ChargeStudy implements Serializable {
 
 	private String title; // 스터디 제목
 	private int no; // 번호

@@ -1,19 +1,19 @@
 package com.studywithus.handler;
 
 import java.util.List;
-import com.studywithus.domain.MentorApplicant;
+import com.studywithus.domain.Member;
 
 public class MentorApplicantListHandler extends AbstractMentorApplicantHandler {
 
-  public MentorApplicantListHandler (List<MentorApplicant> mentorApplicantList) {
+  public MentorApplicantListHandler (List<Member> mentorApplicantList) {
     super(mentorApplicantList);
   }
   @Override
   public void execute() {
-    System.out.println("[멘토 신청 내역]");
+    System.out.println("[멘토 신청 내역 / 조회]\n");
 
-    for(MentorApplicant mentorApplicant : mentorApplicantList) {
-      System.out.printf("%s, %s\n",mentorApplicant.name, mentorApplicant.id);
+    for(Member mentorApplicant : mentorApplicantList) {
+      System.out.println("신청자 이름 : " + mentorApplicant.getName());
     }
   }
 }

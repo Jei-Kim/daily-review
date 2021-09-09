@@ -1,19 +1,23 @@
 package com.studywithus.domain;
 
+import java.io.Serializable;
 import java.sql.Date;
+import java.util.List;
 
-public class FreeStudy {
+@SuppressWarnings("serial")
+public class FreeStudy implements Serializable {
 
   private int no;
   private String title;
-  private String writer;
-  private String onOffLine;
+  private Member writer;
+  private int onOffLine;
   private String area;
   private String explanation;
   private String rule;
   private Date registeredDate;
   private int like;
   private int viewCount;
+  private List<FreeStudy> freeInterest;
 
   public int getNo() {
     return no;
@@ -31,19 +35,19 @@ public class FreeStudy {
     this.title = title;
   }
 
-  public String getWriter() {
+  public Member getWriter() {
     return writer;
   }
 
-  public void setWriter(String writer) {
+  public void setWriter(Member writer) {
     this.writer = writer;
   }
 
-  public String getOnOffLine() {
+  public int getOnOffLine() {
     return onOffLine;
   }
 
-  public void setOnOffLine(String onOffLine) {
+  public void setOnOffLine(int onOffLine) {
     this.onOffLine = onOffLine;
   }
 
@@ -93,5 +97,13 @@ public class FreeStudy {
 
   public void setViewCount(int viewCount) {
     this.viewCount = viewCount;
+  }
+
+  public List<FreeStudy> getFreeInterest() {
+    return freeInterest;
+  }
+
+  public void setFreeInterest(List<FreeStudy> freeInterest) {
+    this.freeInterest = freeInterest;
   }
 }
