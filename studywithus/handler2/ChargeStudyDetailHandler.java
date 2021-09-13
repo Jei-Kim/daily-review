@@ -6,11 +6,16 @@ import com.studywithus.util.Prompt;
 
 public class ChargeStudyDetailHandler extends AbstractChargeStudyHandler{
 
+  ChargeStudy chargestudy; 
+
   List<ChargeStudy> paymentStudyList;
   List<ChargeStudy> chargeInterestList;
 
   public ChargeStudyDetailHandler(List<ChargeStudy> chargeStudyList, List<ChargeStudy> chargeInterestList, List<ChargeStudy> paymentStudyList) {
-    super(chargeStudyList, chargeInterestList, paymentStudyList);
+    super(chargeStudyList);
+
+    this.paymentStudyList = paymentStudyList;
+    this.chargeInterestList = chargeInterestList;
   }
 
   @Override
@@ -84,7 +89,7 @@ public class ChargeStudyDetailHandler extends AbstractChargeStudyHandler{
       System.out.println(" 유료 스터디 결제를 취소하셨습니다.");
     }
     else {
-      StringBuffer dot = new StringBuffer("");
+      StringBuffer heart = new StringBuffer("");
 
       System.out.print("------------------------------------");
       System.out.println("\n"
@@ -98,22 +103,24 @@ public class ChargeStudyDetailHandler extends AbstractChargeStudyHandler{
           Thread.sleep(1000);
         } catch (InterruptedException e) {
         }
-        System.out.print(dot.append("♥"));
+        System.out.print(heart.append("♡♥"));
       }
       System.out.println();
       System.out.println();
       System.out.println("유료 스터디 결제가 완료 되었습니다.\n");
 
-      ChargeStudy paymentStudy = new ChargeStudy();
-      paymentStudyList.add(paymentStudy);
+      //  ChargeStudy paymentStudy = new ChargeStudy();
+      paymentStudyList.add(chargestudy);
     }
     return;
   }
 
-  private void interestAddHandler(ChargeStudy interest) {
+  // private void interestAddHandler(ChargeStudy interest) {
+  private void interestAddHandler(ChargeStudy chargestudy) {
 
     for(ChargeStudy study : chargeInterestList) {
-      if(study.equals(interest)) {
+      //if(study.equals(interest)) {
+      if(study.equals(chargestudy)) {
         System.out.println("");
       }
     }
@@ -125,14 +132,16 @@ public class ChargeStudyDetailHandler extends AbstractChargeStudyHandler{
       return;
     }
 
-    chargeInterestList.add(interest);
+    //chargeInterestList.add(interest);
+    chargeInterestList.add(chargeStudy);
 
     System.out.println();
     System.out.println("유료 스터디 관심 목록에 추가되었습니다.\n");
-    return;
+    // return;
   }
 
-  private void interestDeleteHandler(ChargeStudy interest) {
+  // private void interestDeleteHandler(ChargeStudy interest) {
+  private void interestDeleteHandler(ChargeStudy chargestudy) {
     String input = Prompt.inputString("정말 삭제하시겠습니까? (y/N) ");
 
     if (input.equalsIgnoreCase("n") || input.length() == 0) {
@@ -140,7 +149,8 @@ public class ChargeStudyDetailHandler extends AbstractChargeStudyHandler{
       return;
     }
 
-    chargeInterestList.remove(interest);
+    //chargeInterestList.remove(interest);
+    chargeInterestList.remove(chargestudy);
 
     System.out.println();
     System.out.println("무료 스터디 관심 목록을 삭제하였습니다.\n");

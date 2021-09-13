@@ -7,8 +7,9 @@ public class PaymentStudyListHandler extends AbstractChargeStudyHandler{
 
   List<ChargeStudy> paymentStudyList;
 
-  public PaymentStudyListHandler(List<ChargeStudy> paymentStudyList) {
-    super(paymentStudyList, "");
+  public PaymentStudyListHandler(List<ChargeStudy> chargeStudyList, List<ChargeStudy> paymentStudyList) {
+    super(chargeStudyList);
+    this.paymentStudyList = paymentStudyList;
   }
 
   @Override

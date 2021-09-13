@@ -11,7 +11,7 @@ public class ChargeInterestListHandler extends AbstractChargeInterestHandler {
 
   @Override
   public void execute() {
-    System.out.println("[유료 스터디 / 관심 목록 / 조회]");
+    System.out.println("[메인 / 관심 목록 / 조회]");
 
     for (ChargeStudy chargeStudy : chargeInterestList) {
       System.out.println();
